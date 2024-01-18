@@ -584,6 +584,14 @@ const person = {
         pincode: 111
     }
 };
+const eliminateNullOrEmpty = (obj)=>{
+    for(let key in obj){
+        if (obj[key] === null || obj[key] === "") delete obj[key];
+        if (typeof obj[key] === "object") eliminateNullOrEmpty(obj[key]);
+    }
+    return obj;
+};
+console.log("new obj without null opr empty: ", eliminateNullOrEmpty(person));
 
 },{}]},["dBNTe","gvq9L"], "gvq9L", "parcelRequirebaba")
 
